@@ -1,0 +1,62 @@
+{% extends "admin_base.html" %}
+{% block title %}Edit Student{% endblock %}
+{% block students %}active{% endblock %}
+{% block body %}
+<div class="container" style="color: white;">
+    <form method="POST">
+        <h1 style="text-align: center;">Edit Student Details</h1>
+        <div class="row mt-3 mb-3">
+            <div class="col">
+                <label for="rollno" class="form-label">Roll-No :</label>
+                <input type="text" class="form-control" name="rollno" value="{{student.id}}">
+            </div>
+            <div class="col">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" name="name" value="{{student.name}}">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label for="gender" class="form-label">Gender :</label>
+                <select name="gender" id="inputGroupSelect01" class="form-select" required>
+                    <option selected value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="dateofbirth" class="form-label">Date Of Birth :</label>
+                <input type="date" class="form-control" name="dateofbirth" value="{{student.date_of_birth}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="phno" class="form-label">Phone No :</label>
+                <input type="tel" name="phno" class="form-control" value="{{student.phone}}">
+            </div>
+            <div class="col">
+                <label for="email" class="form-label">E-Mail :</label>
+                <input type="email" name="email" class="form-control" value="{{student.email}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="user_id" class="form-label">User ID :</label>
+                <input type="text" name="user_id" class="form-control" value="{{student.user_id}}" disabled>
+            </div>
+            <div class="col">
+                <label for="class_id" class="form-label">Class ID :</label>
+                <input type="text" name="class_id" class="form-control" value="{{student.class_id}}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="address" class="form-label">Address :</label>
+                <textarea class="form-control" name="address" id="address" rows="3" style="resize: none;" required>{{student.address}}</textarea>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-4" type="submit">Save</button>
+        <button class="btn btn-danger mt-4" type="reset">Reset</button>
+    </form>
+</div>  
+{% endblock %}

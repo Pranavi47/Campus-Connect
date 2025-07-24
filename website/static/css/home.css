@@ -1,0 +1,10 @@
+.events{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.headings{
+    color: white;
+    padding: 10px;
+}

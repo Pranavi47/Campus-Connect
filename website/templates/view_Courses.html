@@ -1,0 +1,30 @@
+{% extends "admin_base.html" %}
+{% block title %}View Courses{% endblock %}
+{% block courses %}active{% endblock %}
+{% block body %}
+<div class="container text-center" style="width: 33%;">
+    <h1>Courses</h1>
+    <table class="table table-bordered table-striped mt-5">
+        <tr>
+            <th style="width: 10%;">ID</th>
+            <th style="width: 20%;">Name</th>
+            <th style="width: 5%;"></th>
+        </tr>
+        {% for course in courses %}
+            <tr>
+                <td>{{course.id}}</td>
+                <td>{{course.name}} </td>
+                <td><a href="{{url_for('views.edit_course',id=course.id)}}"><i class="bi bi-pencil-square"></i></a>|<a onclick="cnf_delete()" href="{{url_for('views.deleteCourse',id=course.id)}}"><i class="bi bi-trash"></i></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<script>
+    function cnf_delete(){
+        var cnf = confirm('Confirm to delete the Course')
+        if (cnf == false){
+            event.preventDefault();
+        }
+    }
+</script>
+{% endblock %}

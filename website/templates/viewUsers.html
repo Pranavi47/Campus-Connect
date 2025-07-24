@@ -1,0 +1,40 @@
+{% extends "admin_base.html" %}
+{% block title %} View Users {% endblock %}
+{% block users %}active{% endblock %}
+{% block body %}
+    <form class="d-flex container mt-5" style="display: flex; justify-content: center;" role="search">
+        <input class="form-control me-2" style="width: 18rem;" type="search" name="query" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary" type="submit">Search</button>
+    </form>
+    {% if student != None %}
+        <div class="container" style="display: flex; justify-content: center;">
+            <table class="table table-bordered table-striped table-hover" style="width: 75%;">
+                <tr>
+                    <th>ID</th>
+                    <th>User Type</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th></th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.user_role}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.password}}</td>
+                    <td style="width: 70px;"><a href="{{url_for('views.edit_student',id=user.id)}}"><i class="bi bi-pencil-square"></i></a>|<a onclick="cnf_delete()" href="{{url_for('views.deleteStudent',id=user.id)}}"><i class="bi bi-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+
+    <script>
+        function cnf_delete(){
+            var cnf = confirm('Confirm to delete the student')
+            if (cnf == false){
+                event.preventDefault();
+            }
+        }
+    </script>
+{% endblock %}

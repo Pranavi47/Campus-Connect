@@ -1,0 +1,36 @@
+{% extends "admin_base.html" %}
+{% block title %}View Classes{% endblock %}
+{% block class %}active{% endblock %}
+{% block body %}
+<div class="container text-center">
+    <h1>Classes</h1>
+    <table class="table table-bordered table-striped mt-5">
+        <tr>
+            <th>ID</th>
+            <th>Branch Name</th>
+            <th>Section</th>
+            <th>Year</th>
+            <th>Mentor</th>
+            <th></th>
+        </tr>
+        {% for class in classes %}
+            <tr>
+                <td>{{class.id}}</td>
+                <td>{{class.Branch_name}} </td>
+                <td>{{class.section}}</td>
+                <td>{{class.year}} </td>
+                <td>{{class.mentor}} </td>
+                <td style="width: 100px;"><a href="{{url_for('views.edit_class',id=class.id)}}"><i class="bi bi-pencil-square"></i></a> | <a onclick="cnf_delete()" href="{{url_for('views.deleteClass',id=class.id)}}"><i class="bi bi-trash"></i></a> | <a href="{{url_for('views.add_Stu_Clas',id=class.id)}}"><i class="bi bi-person-plus"></i></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<script>
+    function cnf_delete(){
+        var cnf = confirm('Confirm to delete the Course')
+        if (cnf == false){
+            event.preventDefault();
+        }
+    }
+</script>
+{% endblock %}

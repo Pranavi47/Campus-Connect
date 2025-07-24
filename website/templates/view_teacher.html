@@ -1,0 +1,56 @@
+{% extends "admin_base.html" %}
+{% block title %} View Teachers {% endblock %}
+{% block students %}active{% endblock %}
+{% block body %}
+    <form class="d-flex container mt-5" style="display: flex; justify-content: center;" role="search">
+        <input class="form-control me-2" style="width: 18rem;" type="search" name="query" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary" type="submit">Search</button>
+    </form>
+    {% if teachers != None %}
+        <div class="container">
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th style="width: 3%;">ID</th>
+                    <th style="width: 15%;">Name</th>
+                    <th style="width: 5%;">Gender</th>
+                    <th style="width: 9%;">Date of Birth</th>
+                    <th style="width: 15%;">E-Mail</th>
+                    <th style="width: 8%;">Phone</th>
+                    <th style="width: 15%;">Address</th>
+                    <th>Joining Date</th>
+                    <th>Experience</th>
+                    <th>User ID</th>
+                    <th></th>
+                </tr>
+                {% for teacher in teachers %}
+                <tr>
+                    <td>{{teacher.id}}</td>
+                    <td>{{teacher.name}}</td>
+                    <td>{{teacher.gender}}</td>
+                    <td>{{teacher.date_of_birth}}</td>
+                    <td>{{teacher.email}}</td>
+                    <td>{{teacher.phone}}</td>
+                    <td>{{teacher.address}}</td>
+                    <td>{{teacher.date_of_joining}}</td>
+                    <td>{{teacher.experience}}</td>
+                    <td>{{teacher.user_id}}</td>
+                    <td><a href="{{url_for('views.edit_teacher',id=teacher.id)}}"><i class="bi bi-pencil-square"></i></a>|<a onclick="cnf_delete()" href="{{url_for('views.deleteTeacher',id=teacher.id)}}"><i class="bi bi-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+    <div class="container">
+    {% if teachers == [] %}
+        <div class="alert alert-warning fade show text-center" role="alert"><strong>NO TEACHER FOUND</strong></div>
+    {% endif %}
+    </div>
+    <script>
+        function cnf_delete(){
+            var cnf = confirm('Confirm to delete the teacher')
+            if (cnf == false){
+                event.preventDefault();
+            }
+        }
+    </script>
+{% endblock %}

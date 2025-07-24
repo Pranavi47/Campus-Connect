@@ -1,0 +1,22 @@
+body {
+    background: linear-gradient(45deg ,#09203f, #537895);
+    background-size: cover;
+}
+.navbar-brand{
+    font-size: 35px;
+}
+.icon{
+    font-size: 30px;
+}
+p{
+    text-align: center;
+}
+.big{
+    margin-top: 40vh;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+.vbig{
+    font-size: 40px;
+    margin: 0;
+}

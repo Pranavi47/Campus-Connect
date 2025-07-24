@@ -1,0 +1,48 @@
+{% extends "admin_base.html" %}
+{% block title %} Create User {% endblock %}
+{% block users %} active {% endblock %}
+{% block body %}
+    <div class="container">
+        <h2 style="color: white;">Students</h2>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 20%;">ID</th>
+                <th style="width: 30%;">Name</th>
+                <th style="width: 20%;">Gender</th>
+                <th style="width: 15%;">Date of Birth</th>
+                <th style="width: 15%;"></th>
+            </tr>
+            {% for student in students %}
+                <tr>
+                    <td>{{student.id}}</td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.date_of_birth}}</td>
+                    <td style="justify-content: center; display: flex;"><a href="{{url_for('views.addUser',id=student.id,role='student')}}" class="btn btn-secondary">Add</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="container">
+        <h2 style="color: white;">Teachers</h2>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 20%;">ID</th>
+                <th style="width: 30%;">Name</th>
+                <th style="width: 20%;">Gender</th>
+                <th style="width: 15%;">Date of Birth</th>
+                <th style="width: 15%;"></th>
+            </tr>
+            {% for teacher in teachers %}
+                <tr>
+                    <td>{{teacher.id}}</td>
+                    <td>{{teacher.name}}</td>
+                    <td>{{teacher.gender}}</td>
+                    <td>{{teacher.date_of_birth}}</td>
+                    <td style="justify-content: center; display: flex;"><a href="{{url_for('views.addUser',id=teacher.id,role='teacher')}}" class="btn btn-secondary">Add</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="mt-4" style="display: flex; justify-content: center;"><a href="{{url_for('views.add_admin')}}" class="btn btn-primary">Add Admin</a></div>
+{% endblock %}

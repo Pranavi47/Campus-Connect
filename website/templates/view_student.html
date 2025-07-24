@@ -1,0 +1,50 @@
+{% extends "admin_base.html" %}
+{% block title %} View Students {% endblock %}
+{% block students %}active{% endblock %}
+{% block body %}
+    <form class="d-flex container mt-5" style="display: flex; justify-content: center;" role="search">
+        <input class="form-control me-2" style="width: 18rem;" type="search" name="query" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary" type="submit">Search</button>
+    </form>
+    {% if student != None %}
+        <div class="container">
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>E-Mail</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Class ID</th>
+                    <th>User ID</th>
+                    <th></th>
+                </tr>
+                {% for s in student %}
+                <tr>
+                    <td>{{s.id}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.gender}}</td>
+                    <td>{{s.date_of_birth}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.phone}}</td>
+                    <td>{{s.address}}</td>
+                    <td>{{s.class_id}}</td>
+                    <td>{{s.user_id}}</td>
+                    <td><a href="{{url_for('views.edit_student',id=s.id)}}"><i class="bi bi-pencil-square"></i></a>|<a onclick="cnf_delete()" href="{{url_for('views.deleteStudent',id=s.id)}}"><i class="bi bi-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endif %}
+
+    <script>
+        function cnf_delete(){
+            var cnf = confirm('Confirm to delete the student')
+            if (cnf == false){
+                event.preventDefault();
+            }
+        }
+    </script>
+{% endblock %}

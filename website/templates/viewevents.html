@@ -1,0 +1,36 @@
+{% extends "admin_base.html" %}
+{% block events %}active{% endblock %}
+{% block title %}View Events{% endblock %}
+{% block body %}
+    <div class="container text-center">
+        <h1>EVENTS</h1>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>link</th>
+                <th></th>
+            </tr>
+            {% for event in events %}
+                <tr>
+                    <td>{{event.id}}</td>
+                    <td>{{event.name}}</td>
+                    <td>{{event.description}}</td>
+                    <td>{{event.date}}</td>
+                    <td>{{event.link}}</td>
+                    <td><a href="{{url_for('views.edit_event',id=event.id)}}"><i class="bi bi-pencil-square"></i></a>|<a onclick="cnf_delete()" href="{{url_for('views.deleteEvent',id=event.id)}}"><i class="bi bi-trash"></i></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <script>
+        function cnf_delete(){
+            var cnf = confirm('Confirm to delete the Event')
+            if (cnf == false){
+                event.preventDefault();
+            }
+        }
+    </script>
+{% endblock %}

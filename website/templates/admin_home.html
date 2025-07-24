@@ -1,0 +1,69 @@
+{% extends "admin_base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+    <div style="margin-top: 30px; display: flex; justify-content: center; flex-wrap: wrap;">
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/student.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Student</h5>
+          <a href="{{url_for('views.add_student')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.view_student')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/teacher.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Teacher</h5>
+          <a href="{{url_for('views.add_teacher')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.viewteachers')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/courses.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Course</h5>
+          <a href="{{url_for('views.add_course')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.viewcourse')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/class.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Class</h5>
+          <a href="{{url_for('views.add_class')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.viewclass')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/events.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Events</h5>
+          <a href="{{url_for('views.add_events')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.viewevents')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/fees.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Fees</h5>
+          <a href="#" class="btn btn-primary">Manage</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/timetable.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Time Table</h5>
+          <a href="{{url_for('views.add_teacher')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.viewteachers')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem; text-align: center; margin: 15px;">
+        <img src="static/images/users.jpg" style="height: 150px;" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Users</h5>
+          <a href="{{url_for('views.createUser')}}" class="btn btn-primary" style="width: 27%;">Add</a>
+          <a href="{{url_for('views.viewUsers')}}" class="btn btn-secondary" style="width: 27%;">View</a>
+        </div>
+      </div>
+    </div>
+{% endblock %}
